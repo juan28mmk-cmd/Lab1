@@ -1,33 +1,36 @@
+```mermaid
 classDiagram
 direction LR
 
-class Catalogo1 {
-  +int IdCatalogo1
-  +string Nombre
-  +bool Activo
-}
-
-class Catalogo2 {
-  +int IdCatalogo2
-  +string Nombre
-  +bool Activo
-}
-
-class Relacion {
-  +int IdRelacion
-  +int IdCatalogo1_FK
-  +int IdCatalogo2_FK
-  +date Fecha
-  +string Estado
-}
-
-class Extra {
-  +int IdExtra
+class Cliente {
+  +int IdCliente
   +string Nombre
   +string Correo
   +bool Activo
 }
 
-Catalogo1 "1" --> "0..*" Relacion : FK
-Catalogo2 "1" --> "0..*" Relacion : FK
-Extra "1" --> "0..*" Catalogo2 : participa
+class Plan {
+  +int IdPlan
+  +string Nombre
+  +double Precio
+  +bool Activo
+}
+
+class Inscripcion {
+  +int IdInscripcion
+  +int IdCliente_FK
+  +int IdPlan_FK
+  +date FechaInicio
+  +string Estado
+}
+
+class Entrenador {
+  +int IdEntrenador
+  +string Nombre
+  +string Correo
+  +bool Activo
+}
+
+Cliente "1" --> "0..*" Inscripcion : se_inscribe
+Plan "1" --> "0..*" Inscripcion : pertenece
+Entrenador "1" --> "0..*" Plan : gestiona
