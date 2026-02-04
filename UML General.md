@@ -34,3 +34,6 @@ class Entrenador {
 Cliente "1" --> "0..*" Inscripcion : se_inscribe
 Plan "1" --> "0..*" Inscripcion : pertenece
 Entrenador "1" --> "0..*" Plan : gestiona
+```
+
+
